@@ -66,8 +66,7 @@ defmodule ExCell.Base do
       @doc """
       Returns the container of a cell as a Phoenix.Tag.
 
-          iex(0)> alias Phoenix.HTML.safe_to_string
-          iex(1)> safe_to_string(AvatarCell.container)
+          iex(0)> Phoenix.HTML.safe_to_string(AvatarCell.container)
           "<div class=\\"AvatarCell\\" data-cell=\\"AvatarCell\\" data-cell-params=\\"{}\\">"
       """
       def container, do: container(%{}, [], do: nil)
@@ -75,8 +74,7 @@ defmodule ExCell.Base do
       @doc """
       Returns the container of a cell as a Phoenix.Tag with it's content.
 
-          iex(0)> alias Phoenix.HTML.safe_to_string
-          iex(1)> safe_to_string(AvatarCell.container(do: "Hello"))
+          iex(0)> Phoenix.HTML.safe_to_string(AvatarCell.container(do: "Hello"))
           "<div class=\\"AvatarCell\\" data-cell=\\"AvatarCell\\" data-cell-params=\\"{}\\">Hello</div>"
       """
       def container(do: content), do: container(%{}, [], do: content)
@@ -96,8 +94,7 @@ defmodule ExCell.Base do
 
       ## Examples
 
-          iex(0)> alias Phoenix.HTML.safe_to_string
-          iex(1)> safe_to_string(AvatarCell.container(tag: :a, data: [foo: "bar"], class: "Moo", href: "/"))
+          iex(0)> Phoenix.HTML.safe_to_string(AvatarCell.container(tag: :a, data: [foo: "bar"], class: "Moo", href: "/"))
           "<a class=\\"AvatarCell Moo\\" data-foo="bar" data-cell=\\"AvatarCell\\" data-cell-params=\\"{}\\">"
       """
       def container(options) when is_list(options), do: container(%{}, options, do: nil)
@@ -109,8 +106,7 @@ defmodule ExCell.Base do
 
       ## Examples
 
-          iex(0)> alias Phoenix.HTML.safe_to_string
-          iex(1)> safe_to_string(AvatarCell.container(%{ foo: "bar" }))
+          iex(0)> Phoenix.HTML.safe_to_string(AvatarCell.container(%{ foo: "bar" }))
           "<a class=\\"AvatarCell\\" data-cell=\\"AvatarCell\\" data-cell-params=\\"{&quot;foo&quot;:&quot;bar&quot;}">"
       """
       def container(%{} = params), do: container(params, [], do: nil)
